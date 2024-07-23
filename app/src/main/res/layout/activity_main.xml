@@ -1,50 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/number1"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/number1Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="Enter number 1"
-        android:inputType="numberDecimal"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_alignParentTop="true" />
+        style="@style/CalculatorAppTextField">
 
-    <EditText
-        android:id="@+id/number2"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/number1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@android:color/transparent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/number2Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter number 2"
-        android:inputType="numberDecimal"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_below="@id/number1" />
+        android:layout_below="@id/number1Layout"
+        android:hint="Enter number 2"
+        style="@style/CalculatorAppTextField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/number2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@android:color/transparent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
         android:id="@+id/operation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_below="@id/number2"
+        android:layout_below="@id/number2Layout"
         android:entries="@array/operations" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/operation" />
+        android:layout_below="@id/operation"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
     <TextView
         android:id="@+id/result"
